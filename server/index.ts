@@ -1,29 +1,29 @@
-import express, { type Request, Response, NextFunction } from "express";
-import { registerRoutes } from "./routes";
-import { setupVite, serveStatic, log } from "./vite";
+import express from "express";
+import cors from "cors";
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+
+// 🔹 Middleware
+app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
-app.use((req, res, next) => {
-  const start = Date.now();
-  const path = req.path;
-  let capturedJsonResponse: Record<string, any> | undefined = undefined;
+// 🔹 Exemplu de endpoint
+app.get("/", (req, res) => {
+  res.json({
+    message: "✅ API-ul Express rulează corect!",
+    mode: process.env.NODE_ENV,
+  });
+});
 
-  const originalResJson = res.json;
-  res.json = function (bodyJson, ...args) {
-    capturedJsonResponse = bodyJson;
-    return originalResJson.apply(res, [bodyJson, ...args]);
-  };
+// 🔹 Alte rute de API pot fi adăugate aici
+// app.use("/api/users", usersRouter);
 
-  res.on("finish", () => {
-    const duration = Date.now() - start;
-    if (path.startsWith("/api")) {
-      let logLine = `${req.method} ${path} ${res.statusCode} in ${duration}ms`;
-      if (capturedJsonResponse) {
-        logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
-      }
+// 🔹 Pornește serverul
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 Serverul rulează pe http://localhost:${PORT}`);
+});
+
 
       if (logLine.length > 80) {
         logLine = logLine.slice(0, 79) + "…";
