@@ -1,0 +1,54 @@
+Creează un site web complet (frontend + backend) cu următoarele cerințe:
+
+🔹 STRUCTURĂ GENERALĂ:
+- Site inspirat din structura Fox News (layout general, dispunerea știrilor, secțiunile etc).
+- Design responsive (desktop + mobil).
+- Paletă de culori: nuanțe navy blur (un albastru marin deschis cu efect blur subtil), text alb/gri închis pentru contrast.
+- Font modern (ex: "Poppins" sau "Roboto Condensed").
+
+🔹 HEADER:
+- În stânga: logo-ul (poate fi imagine transparentă PNG). 
+- În dreapta: meniu de navigare cu **drag & drop** pentru reordonarea categoriilor de știri.
+- În interiorul meniului: o **bară de search** (input + icon search).
+- În stânga meniului: o **iconiță în formă de inimă** cu border galben și text “Donează”.
+- Header-ul trebuie să fie sticky și cu fundal semi-transparent (efect blur ușor).
+
+🔹 PAGINA PRINCIPALĂ:
+- Prima știre (“main title”) să fie afișată **ca pe site-ul golazo.com**, cu imagine mare, titlu evidențiat.
+- Pe mobil:
+  - Poza principală a știrii în prim-plan.
+  - Sub ea, titlul mare, cu efect **drop-shadow**.
+  - Sub titlu, o descriere scurtă.
+  - O săgeată cu text “Citește mai mult” (stil buton animat).
+  - Efect de tranziție/zoom-out între mai multe poze (carousel automat).
+- Sub prima știre:
+  - Un **video YouTube embed** (să fie ușor modificabil din admin).
+  - O știre de actualitate din județul Constanța.
+  - Sub acea știre, un sistem de **live updates** sub formă de checkpoint-uri (timeline cu actualizări, dată și oră).
+
+🔹 SIDEBAR & FUNCȚIONALITĂȚI:
+- În colțul din dreapta jos: **buton WhatsApp flotant**, care redirecționează către un link de chat invite WhatsApp.
+- Pe desktop, structura generală a știrilor să rămână ca pe Fox News (știri principale, grilă de articole, sidebar cu trending).
+- Pe mobil, layout complet adaptat cu efecte fluide.
+
+🔹 ADMIN PANEL:
+- Crează un **cont de admin** (login / logout) cu un **dashboard** modern.
+- Din dashboard poți:
+  - adăuga / edita / șterge știri (titlu, imagine, text, categorie, link video, etc);
+  - organiza categoriile prin drag & drop;
+  - posta știrile direct pe Facebook (share link automat generat).
+- Admin-ul să aibă interfață modernă (folosește React Admin sau un UI minimalist custom).
+
+🔹 TEHNOLOGII SUGERATE:
+- Frontend: React + TailwindCSS / Next.js (recomandat pentru SEO).
+- Backend: Node.js + Express + MongoDB.
+- Autentificare admin: JWT sau Firebase Auth.
+- Hosting compatibil Replit (Express + frontend build).
+- Asigură-te că designul este “insane” vizual: efecte fluide, omogenizare culori, ușor de folosit pe mobil.
+
+🔹 EXTRA:
+- Fiecare articol să aibă o pagină dedicată (cu slug în URL).
+- Include un fișier `config.js` unde pot fi schimbate linkurile (ex: link YouTube, link WhatsApp).
+- Toate componentele să fie structurate curat în foldere (`components`, `pages`, `admin`, `api`, etc).
+
+Creează fișierele necesare și explică cum rulez proiectul pe Replit (inclusiv setup de MongoDB și variabile ENV).
